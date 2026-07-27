@@ -46,10 +46,12 @@ export const generatePdfNotes = async (formData) => {
       },
     );
 
-    console.log(result.data);
     return result.data;
   } catch (error) {
-    console.log(error);
+    console.log("Status:", error.response?.status);
+    console.log("Backend:", error.response?.data);
+
+    throw error; // <-- IMPORTANT
   }
 };
 
